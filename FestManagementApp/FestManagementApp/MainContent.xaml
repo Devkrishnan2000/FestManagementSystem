@@ -1,0 +1,424 @@
+﻿<Window x:Name="window" x:Class="FestManagementApp.MainContent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:local="clr-namespace:FestManagementApp.UserControls" xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+       
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainContent" Height="650" Width="800" FontFamily="/FestManagementApp;component/Fonts/#Open Sans" WindowStyle="None" ResizeMode="CanResizeWithGrip" RenderTransformOrigin="0.5,0.5" AllowsTransparency="True">
+  
+    <Grid Background="{DynamicResource secondary_background}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal" Background="{DynamicResource secondary_background}" MouseMove="StackPanel_MouseMove">
+            <Label x:Name="Title" Content="Fest Management" FontSize="16" FontFamily="/FestManagementApp;component/Fonts/#Medel" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+            <Button x:Name="MaxBtn" Style="{DynamicResource maximize_btn_style}" Click="MaxBtn_Click" Margin="0" Padding="0"/>
+            <Button x:Name="MiniBtn"   Style="{DynamicResource minimize_btn_style}" Click="MiniBtn_Click"  Margin="0" Padding="0" />
+            <Button x:Name="CloseBtn" Style="{DynamicResource close_btn_style}" Click="CloseBtn_Click" Margin="0" Padding="0"/>
+        </StackPanel>
+
+        <dragablz:TabablzControl Margin="8" Grid.Row="1" Background="White" BorderBrush="{DynamicResource primary_color_btn}" BorderThickness="2" Foreground="White"  >
+            <dragablz:TabablzControl.InterTabController>
+                <dragablz:InterTabController  />
+            </dragablz:TabablzControl.InterTabController>
+            <TabItem IsSelected="True">
+                <TabItem.Header>
+                    <TextBlock Text="FEST ORGANIZER" FontSize="15" Foreground="White"/>
+                </TabItem.Header>
+                <Grid>
+                    <dragablz:TabablzControl TabStripPlacement="Left" >
+                        <dragablz:TabablzControl.ItemContainerStyle>
+                            <Style TargetType="{x:Type dragablz:DragablzItem}" BasedOn="{StaticResource MaterialDesignDragableTabItemVerticalStyle}">
+                                <Setter Property="Width" Value="150" />
+                                <Setter Property="Height" Value="40" />
+                            </Style>
+                        </dragablz:TabablzControl.ItemContainerStyle>
+                        <dragablz:TabablzControl.InterTabController>
+                            <dragablz:InterTabController />
+                        </dragablz:TabablzControl.InterTabController>
+                        <TabItem x:Name="EventTab" Selector.Selected="EventTab_Selected_1">
+                            <TabItem.Header>
+                                <TextBlock Text="ADD EVENT" Foreground="White"/>
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="75"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Border BorderThickness="2" Grid.Row="0" BorderBrush="{DynamicResource primary_color_btn}" Margin="10">
+                                    <ScrollViewer Grid.Row="0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10">
+                                                <TextBlock Text="Add new Event" FontSize="20" Margin="0,10,0,10"/>
+                                                <Label Content="Event Name"/>
+                                                <TextBox x:Name="EventNametxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Label Content="Description"/>
+                                                <TextBox x:Name="Desctxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Label Content="Event Venue"/>
+                                                <TextBox x:Name="Venuetxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Button x:Name="InsEventBtn" Content="INSERT TO TABLE" Style="{DynamicResource tab_btns}" Padding="0" Width="120" Height="30" FontSize="12" Margin="0,10,0,10" HorizontalAlignment="Left" Click="InsEventBtn_Click"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,57">
+                                                <Label Content="Number of Group Members"/>
+                                                <TextBox x:Name="GroupMemtxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Label Content="Event Cost"/>
+                                                <TextBox x:Name="Costtxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Label Content="No of Rounds"/>
+                                                <TextBox x:Name="NoRoundtxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                            </StackPanel>
+
+                                        </Grid>
+                                    </ScrollViewer>
+                                </Border>
+                                <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5" CanVerticallyScroll="True">
+
+                                    <TextBlock Text="Edit\Preview Table" FontSize="20" Margin="5"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" Background="{DynamicResource secondary_background}" HorizontalAlignment="Stretch">
+                                        <Image Source="Images\search.png" Width="17" Height="17" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                        <TextBox x:Name="EventSearchBox"  Height="20" Width="200" Margin="5,0,10,0"  HorizontalAlignment="Right" TextChanged="SearchBoxTextChanged" ToolTip="search"/>
+                                        <Button x:Name="EventSaveBtn" Content="Save Changes" Height="30" Margin="30,0" Width="85" Padding="0" FontSize="10" Style="{DynamicResource tab_btns}" Click="SaveToDbBtn" BorderThickness="0" />
+                                        <Button x:Name="EventDelBtn" Content="Delete Row" Background="Red" Height="30" Margin="30,0" Width="85" Padding="0" FontSize="10" Style="{DynamicResource tab_btns}" Click="DeleteRow" BorderThickness="0" />
+                                    </StackPanel>
+
+
+                                </StackPanel>
+                                <DataGrid x:Name="DisplayEventTable"  Grid.Row="2" Grid.Column="0" Background="White" CanUserDeleteRows="False"/>
+
+
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="CordTab" Selector.Selected="CordTab_Selected">
+                            <TabItem.Header>
+                                <TextBlock Text="ADD COORDINATORS" Foreground="White"/>
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="75"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Border BorderThickness="2" Grid.Row="0" BorderBrush="{DynamicResource primary_color_btn}" Margin="10">
+                                    <ScrollViewer Grid.Row="0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10">
+                                                <TextBlock Text="Add new Coordinator" FontSize="20" Margin="0,10,0,10"/>
+                                                <Label Content="Name"/>
+                                                <TextBox x:Name="CoordinatorNametxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Label Content="Coordinating Event"/>
+                                                <ComboBox x:Name="CoEventtxt" Width="200" Margin="0"  HorizontalAlignment="Left"/>
+                                                <Label Content="Phone Number"/>
+                                                <TextBox x:Name="Phonetxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Button x:Name="InscordBtn" Content="INSERT TO TABLE" Style="{DynamicResource tab_btns}" Padding="0" Width="120" Height="30" FontSize="12" Margin="0,10,0,10" HorizontalAlignment="Left" Click="InscordBtn_Click"/>
+                                            </StackPanel>
+
+                                        </Grid>
+                                    </ScrollViewer>
+                                </Border>
+                                <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5" CanVerticallyScroll="True">
+
+                                    <TextBlock Text="Edit\Preview Table" FontSize="20" Margin="5"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" Background="{DynamicResource secondary_background}" HorizontalAlignment="Stretch">
+                                        <Image Source="Images\search.png" Width="17" Height="17" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                        <TextBox x:Name="CordSearchBox"  Height="20" Width="200" Margin="5,0,10,0"  HorizontalAlignment="Right" TextChanged="SearchBoxTextChanged" ToolTip="search"/>
+                                        <Button x:Name="CordSaveBtn" Content="Save Changes" Height="30" Margin="30,0" Width="85" Padding="0" FontSize="10" Style="{DynamicResource tab_btns}" Click="SaveToDbBtn" BorderThickness="0" Visibility="Collapsed" />
+                                        <Button x:Name="CordDelBtn" Content="Delete Coordinator Account" Background="Red" Height="30" Margin="30,0" Width="150" Padding="0" FontSize="10" Style="{DynamicResource tab_btns}" Click="DeleteRow" BorderThickness="0" />
+                                    </StackPanel>
+
+
+                                </StackPanel>
+                                <DataGrid x:Name="DisplayCordTable"  Grid.Row="2" Grid.Column="0" Background="White" CanUserDeleteRows="False" CanUserAddRows="False" />
+
+
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="CollegeTab" Selector.Selected="CollegeTab_Selected" >
+                            <TabItem.Header>
+                                <TextBlock Text="ADD COLLEGE" Foreground="White"/>
+                                
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="75"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Border BorderThickness="2" Grid.Row="0" BorderBrush="{DynamicResource primary_color_btn}" Margin="10">
+                                    <ScrollViewer Grid.Row="0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10">
+                                                <TextBlock Text="Add new College" FontSize="20" Margin="0,10,0,10"/>
+                                                <Label Content=" Name"/>
+                                                <TextBox x:Name="CollegeNametxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Label Content="College Location"/>
+                                                <TextBox x:Name="CollegeLoctxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Label Content="College Mail"/>
+                                                <TextBox x:Name="CollegeMailtxt" Width="200" Margin="0" Style="{DynamicResource textbox_style}" HorizontalAlignment="Left"/>
+                                                <Button x:Name="InscollegBtn" Content="INSERT TO TABLE" Style="{DynamicResource tab_btns}" Padding="0" Width="120" Height="30" FontSize="12" Margin="0,10,0,10" HorizontalAlignment="Left" Click="InscollegBtn_Click"/>
+                                                
+                                            </StackPanel>
+                                          
+                                        </Grid>
+                                    </ScrollViewer>
+                                </Border>
+                                <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5" CanVerticallyScroll="True">
+                                   
+                                    <TextBlock Text="Edit\Preview Table" FontSize="20" Margin="5"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" Background="{DynamicResource secondary_background}" HorizontalAlignment="Stretch">
+                                        <Image Source="Images\search.png" Width="17" Height="17" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                        <TextBox x:Name="CollegeSearchBox"  Height="20" Width="200" Margin="5,0,10,0"  HorizontalAlignment="Right" TextChanged="SearchBoxTextChanged" ToolTip="search"/>
+                                        <Button x:Name="CollegeSaveBtn" Content="Save Changes" Height="30" Margin="30,0" Width="85" Padding="0" FontSize="10" Style="{DynamicResource tab_btns}" Click="SaveToDbBtn" BorderThickness="0" />
+                                        <Button x:Name="CollegeDelBtn" Content="Delete Row" Background="Red" Height="30" Margin="30,0" Width="85" Padding="0" FontSize="10" Style="{DynamicResource tab_btns}" Click="DeleteRow" BorderThickness="0" />
+                                    </StackPanel>
+                                    
+                                   
+                                </StackPanel>
+                                <DataGrid x:Name="DisplayCollegeTable"  Grid.Row="2" Grid.Column="0" Background="White"/>
+
+
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <TextBlock Text="EDIT TABLES" Foreground="White"/>
+                            </TabItem.Header>
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Background="{DynamicResource secondary_background}">
+                                    <Label Content="Table" FontSize="10" VerticalAlignment="Center"/>
+                                    <ComboBox x:Name="TableCombobox" IsEditable="True" Height="23" SelectionChanged="TableCombobox_SelectionChanged"/>
+                                    <Button x:Name="Savebtn" Content="Save Changes" Height="30" Margin="30,0" Width="85" Padding="0" FontSize="10" Style="{DynamicResource tab_btns}" Click="Savebtn_Click" BorderThickness="0" />
+                                    <Button x:Name="DelBtn" Content="Delete Row" Background="Red" Height="30" Margin="10,0" Width="85" Padding="0" FontSize="10" Style="{DynamicResource tab_btns}" Click="DeleteRow" BorderThickness="0" />
+
+                                </StackPanel>
+                                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Image Source="Images\search.png" Width="17" Height="17" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                    <TextBox x:Name="SearchBox"  Height="20" Width="200" Margin="5,0,10,0" />
+                                </StackPanel>
+                                <DataGrid x:Name="DisplayTable"  Grid.Row="1" Grid.Column="0" Background="White" />
+
+
+                            </Grid>
+                        </TabItem>
+                    </dragablz:TabablzControl>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="StatsTab" Selector.Selected="StatsTab_Selected" >
+                <TabItem.Header>
+
+                    <TextBlock Text="STATS" FontSize="15" Foreground="White"/>
+                </TabItem.Header>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border x:Name="Statval_cont" Grid.Row="0"  Background="{DynamicResource secondary_background}">
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="Total Participants" HorizontalAlignment="Center" FontSize="20"/>
+                            <Label x:Name="partnum" Content="00" Foreground="{DynamicResource primary_color_btn}" FontSize="30" HorizontalAlignment="Center"/>
+                            
+                                <Label Content="Most popular Event" FontSize="15" Margin="20,-70" />
+                            <Label Content="Most participated college" FontSize="15" HorizontalAlignment="Right" Margin="20,-70"/>
+                            
+                           
+                                <Label x:Name="mostevent" Content="Event Name" Foreground="{DynamicResource primary_color_btn}" FontSize="12" Margin="20,-40"/>
+                            <Label x:Name="mostcollege" Content="Event Name" Foreground="{DynamicResource primary_color_btn}" FontSize="12" Margin="20,-40" HorizontalAlignment="Right"/>
+
+
+
+
+                        </StackPanel>
+                    </Border>
+                    <ScrollViewer Grid.Row="1">
+                        <Grid x:Name="graphgrid" Grid.Row="1">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition/>
+                                
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                           
+                            
+                            <Grid Grid.Row="1" Grid.Column="0" Margin="20,10" Background="#f5f5f5">
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" Opacity=".2" ShadowDepth="1"/>
+                                </Grid.Effect>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="45"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Content="Number of Participation for each Event" FontSize="20" Margin="20,0"/>
+                                <local:EventGraphs Grid.Row="1"></local:EventGraphs>
+                            </Grid>
+                            <Grid Grid.Row="3" Grid.Column="0" Margin="20,10" Background="#f5f5f5">
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" Opacity=".2" ShadowDepth="1"/>
+                                </Grid.Effect>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="45"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Content="Number of Participants from each College" FontSize="20" Margin="20,0"/>
+                                <local:CollegeGraph Grid.Row="1"></local:CollegeGraph>
+                            </Grid>
+
+                        </Grid>
+                    </ScrollViewer>
+                    
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="result_tab" Selector.Selected="result_tab_Selected">
+                <TabItem.Header>
+                    <TextBlock Text="RESULT" FontSize="15" Foreground="White"/>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.10*"/>
+                        <RowDefinition Height="0.90*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text=" Event Results" Margin="10" Grid.Row="0" FontSize="30"/>
+                    <ListBox x:Name="ResultBox" Grid.Row="1" ItemsSource="{Binding ResultViewModel}" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="1" CornerRadius="5" BorderBrush="{DynamicResource primary_color_btn}" Margin="5" Padding="5" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="0.15*"/>
+                                            <RowDefinition Height="0.85*"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0" Text="{Binding Ename}" FontSize="25" Foreground="{DynamicResource primary_color_btn}" Margin="0,5,0,10"/>
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.05*"/>
+                                                <ColumnDefinition Width="0.3*"/>
+                                                <ColumnDefinition Width="0.3*"/>
+                                                <ColumnDefinition Width="0.3*"/>
+                                                <ColumnDefinition Width="0.05*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="0.85*"/>
+                                                <RowDefinition Height="0.15*"/>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="/Images/gold.png" Grid.Row="0" Grid.Column="1" Width="30" Height="30" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Firstprize}" HorizontalAlignment="Center"/>
+                                            <Image Source="/Images/silver.png" Grid.Row="0" Grid.Column="2" Width="30" Height="30" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Secondprize}" HorizontalAlignment="Center"/>
+                                            <Image Source="/Images/bronze.png" Grid.Row="0" Grid.Column="3" Width="30" Height="30" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding Thirdprize}" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem >
+                <TabItem.Header>
+                    <TextBlock Text="COMMUNICATION" FontSize="15" Foreground="White"/>
+                </TabItem.Header>
+
+                <Grid>
+                    <dragablz:TabablzControl TabStripPlacement="Left" >
+                        <dragablz:TabablzControl.ItemContainerStyle>
+                            <Style TargetType="{x:Type dragablz:DragablzItem}" BasedOn="{StaticResource MaterialDesignDragableTabItemVerticalStyle}">
+                                <Setter Property="Width" Value="105" />
+                                <Setter Property="Height" Value="40" />
+                            </Style>
+                        </dragablz:TabablzControl.ItemContainerStyle>
+                        <dragablz:TabablzControl.InterTabController>
+                            <dragablz:InterTabController />
+                        </dragablz:TabablzControl.InterTabController>
+                        <TabItem>
+                            <TabItem.Header>
+                                <TextBlock Text="SEND INVITES" Foreground="White" Margin="0,0,5,0"/>
+                            </TabItem.Header>
+                            <ScrollViewer>
+                                
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Send Fest Invitation to the following Email's:" FontSize="20" Margin="10"/>
+                                    <ListBox x:Name="SenderList"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="SendCollege" Content="Send to All Colleges" Width="125" Height="30" Padding="0" FontSize="12" Style="{DynamicResource tab_btns}" Margin="5" Click="SendCollege_Click"/>
+                                        <Button x:Name="AddList" Content="Add to List" Width="100" Height="30" Padding="0" FontSize="12" Style="{DynamicResource tab_btns}" Click="AddList_Click"/>
+                                        <Button x:Name="RemovList" Content="Remove from List" Width="130" Height="30" Padding="0" FontSize="12" Style="{DynamicResource tab_btns}" Click="RemovList_Click"/>
+                                    </StackPanel>
+                                    <TextBlock Text="Create Invitation" Margin="10" FontSize="20"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Subject:" Margin="5,0,0,0"/>
+                                        <TextBox x:Name="subjecttxt"  Width="550" MinWidth="550" Style="{DynamicResource textbox_style}" FontSize="12" Margin="10,0,0,0"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="5,20,0,0">
+                                        <Label Content="Body:"/>
+                                        <TextBox x:Name="Bodytxt"   Width="550 " MaxWidth="550" Height="150" MaxHeight="550" Style="{DynamicResource textbox_style}" FontSize="12" Margin="22,0"/>
+                                    </StackPanel>
+                                    <Button x:Name="attachmentBtn" Content="Attach Brochure" Width="120" Height="30" Padding="0" FontSize="12" Style="{DynamicResource tab_btns}" HorizontalAlignment="Left" Margin="65,0" Click="attachmentBtn_Click"/>
+                                    <Button x:Name="SendBtn" Content="SEND INVITE" FontSize="15" Width="120" Height="50" Margin="50" Style="{DynamicResource tab_btns}" Click="SendBtn_Click" />
+                                </StackPanel>
+                            </ScrollViewer>
+                           
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <TextBlock Text="CONTACT &#x0a;COORDINATORS" Foreground="White" Margin="10,0,0,0"/>
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.10*"/>
+                                    <RowDefinition Height="0.05*"/>
+                                    <RowDefinition Height="0.85*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Fest Group Chat" Grid.Row="0"  FontSize="30" Margin="5"/>
+                                <TextBlock Text="Here you can communicate to all the members of the Fest" Margin="5" Grid.Row="1"/>
+                                <local:ChatClient Grid.Row="2"></local:ChatClient>
+                            </Grid>
+                            
+                        </TabItem>
+                    </dragablz:TabablzControl>
+                </Grid>
+            </TabItem>
+            
+
+        </dragablz:TabablzControl>
+    </Grid>
+</Window>

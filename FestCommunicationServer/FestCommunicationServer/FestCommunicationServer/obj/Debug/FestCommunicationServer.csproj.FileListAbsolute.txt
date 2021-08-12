@@ -1,0 +1,7 @@
+C:\Users\devan\source\repos\FestCommunicationServer\FestCommunicationServer\bin\Debug\FestCommunicationServer.exe.config
+C:\Users\devan\source\repos\FestCommunicationServer\FestCommunicationServer\bin\Debug\FestCommunicationServer.exe
+C:\Users\devan\source\repos\FestCommunicationServer\FestCommunicationServer\bin\Debug\FestCommunicationServer.pdb
+C:\Users\devan\source\repos\FestCommunicationServer\FestCommunicationServer\obj\Debug\FestCommunicationServer.csproj.AssemblyReference.cache
+C:\Users\devan\source\repos\FestCommunicationServer\FestCommunicationServer\obj\Debug\FestCommunicationServer.csproj.CoreCompileInputs.cache
+C:\Users\devan\source\repos\FestCommunicationServer\FestCommunicationServer\obj\Debug\FestCommunicationServer.exe
+C:\Users\devan\source\repos\FestCommunicationServer\FestCommunicationServer\obj\Debug\FestCommunicationServer.pdb

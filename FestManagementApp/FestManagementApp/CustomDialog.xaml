@@ -1,0 +1,47 @@
+﻿<Window x:Class="FestManagementApp.CustomDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FestManagementApp"
+        mc:Ignorable="d"
+        Title="CustomDialog" Height="200" Width="400" ResizeMode="NoResize" WindowStyle="None" FontFamily="/FestManagementApp;component/Fonts/#Open Sans">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal" Background="{DynamicResource secondary_background}">
+            <Label x:Name="Title" Content="Content" FontSize="16" FontFamily="/FestManagementApp;component/Fonts/#Medel" />
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+            <Button x:Name="MiniBtn"   Style="{DynamicResource minimize_btn_style}" Click="MiniBtn_Click" Margin="0" Padding="0" />
+            <Button x:Name="CloseBtn" Style="{DynamicResource close_btn_style}" Click="CloseBtn_Click" Margin="0" Padding="0"/>
+        </StackPanel>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderBrush="{DynamicResource secondary_background}" BorderThickness="2">
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"  Orientation="Vertical" >
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <Image x:Name="Icon" Source="Images/alarm.png" Width="50" Height="50" Margin="20,20,0,50" RenderOptions.BitmapScalingMode="HighQuality" />
+                    <TextBlock x:Name="Info" Text="An Error Has Occured !" Margin="20,25,10,0" FontSize="12" Width="300" MaxWidth="250" Height="80" TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="OkBtn" Content="OK" Style="{DynamicResource tab_btns}" Height="35" Width="70" Padding="0" FontSize="12" Margin="0,0,20,0" Click="OkBtn_Click"/>
+                    <Button x:Name="CancelBtn" Content="Cancel" Style="{DynamicResource tab_btns}" Height="35" Width="70" Padding="0" FontSize="12" Margin="0,0,20,0" Click="CancelBtn_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+       
+    </Grid>
+</Window>

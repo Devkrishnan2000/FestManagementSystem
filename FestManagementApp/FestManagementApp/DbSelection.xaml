@@ -1,0 +1,75 @@
+﻿<Window x:Class="FestManagementApp.DbSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FestManagementApp"
+        mc:Ignorable="d"
+        UseLayoutRounding="True"
+        Title="DbSelection" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None" FontFamily="/FestManagementApp;component/Fonts/#Open Sans">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid Background="#5352ed">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="topbar" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Orientation="Horizontal" Background="{DynamicResource secondary_background}" MouseMove="topbar_MouseMove">
+            <Label Content="Select Database" FontFamily="/FestManagementApp;component/Fonts/#Medel"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5,0,5,0">
+            <Button x:Name="MiniBtn" Style="{DynamicResource minimize_btn_style}" Click="MiniBtn_Click"/>
+            <Button x:Name="CloseBtn" Style="{DynamicResource close_btn_style}" Click="CloseBtn_Click"/>
+        </StackPanel>
+        <Border x:Name="cont1" Grid.Row="2" Grid.Column="1" Background="white" CornerRadius="5" BorderBrush="#FFB7B7B7" >
+            <StackPanel  Orientation="Vertical" Margin="10,0,0,0">
+                <TextBlock Text="Let's Start New" FontSize="30"/>
+                <Border x:Name="CreateBtnBorder"  BorderThickness="2" Margin="5,30,10,0" CornerRadius="3"  Style="{DynamicResource buttonborder}" >
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/database.png" Height="50" Width="50" SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="HighQuality" Margin="5" />
+                            <TextBlock Text="Create New Fest " FontSize="20" Margin="15,5,0,0"/>
+                        </StackPanel>
+                        <TextBlock Text="Create a new fest with fresh database" Margin="75,-25,0,0"/>
+                    </StackPanel>
+
+                    
+                </Border>
+            </StackPanel>
+        </Border>
+
+
+        <Border x:Name="cont2" Grid.Row="2" Grid.Column="3" Background="white" CornerRadius="5">
+            <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical" Margin="10,0,0,0">
+                <TextBlock Text="Select from Existing Database " FontSize="25" FontFamily="/FestManagementApp;component/Fonts/#Open Sans" />
+                <TextBlock Text="Select existing Fest from the list bellow:" FontSize="15" FontFamily="/FestManagementApp;component/Fonts/#Open Sans" Margin="10,20,0,0" />
+                <ListBox x:Name="DblistBox" ItemsSource="{Binding DblistModel}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images/databaseS.png" Width="20" Height="20"/>
+                                <TextBlock Text="{Binding Dbname}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button x:Name="NextBtn" Content="Next" Style="{DynamicResource tab_btns}" Width="80" Height="30" FontSize="12" Padding="0" HorizontalAlignment="Right" Margin="0,0,10,0" Click="NextBtn_Click"/>
+            </StackPanel>
+        </Border>
+        
+
+    </Grid>
+</Window>
