@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             Title="Fest Chat"
+             x:Class="testapp2.Pages.ChatPage"
+             xmlns:local="clr-namespace:testapp2.Classes;assembly=testapp2">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="IncomingTemplate">
+                <ViewCell>
+                    <ViewCell.View>
+                        <Frame BackgroundColor="Gray"  Padding="10"
+              HasShadow="false"
+              Margin="10,10,80,10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.05*"/>
+                                    <RowDefinition Height="0.01*"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="0.04*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid  Grid.Row="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Usrname}" TextColor="White" HorizontalTextAlignment="Start" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                                    <Label Text="{Binding Rank}" TextColor="White" HorizontalTextAlignment="End" FontAttributes="Italic" Grid.Row="0" Grid.Column="1"/>
+                                </Grid>
+                                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="LightGray" Grid.Row="1"/>
+                                <Label Text="{Binding Message}" Grid.Row="2" TextColor="White" FontSize="Medium"/>
+                                <Grid Grid.Row="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Time}" TextColor="White" HorizontalTextAlignment="End" Grid.Row="0" Grid.Column="1" FontSize="Micro"/>
+                                </Grid>
+                            </Grid>
+                        </Frame>
+                        
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="OutcomingTemplate">
+                <ViewCell>
+                    <ViewCell.View>
+                        <Frame BackgroundColor="#5352ed"  Padding="10"
+              HasShadow="false"
+              Margin="80,10,10,10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.05*"/>
+                                    <RowDefinition Height="0.01*"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="0.04*"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Grid  Grid.Row="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Usrname}" TextColor="White" HorizontalTextAlignment="Start" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                                    <Label Text="{Binding Rank}" TextColor="White" HorizontalTextAlignment="End" FontAttributes="Italic" Grid.Row="0" Grid.Column="1"/>
+                                </Grid>
+                                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="LightGray" Grid.Row="1"/>
+                                <Label Text="{Binding Message}" Grid.Row="2" TextColor="White" FontSize="Medium"/>
+                                <Grid Grid.Row="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Time}" TextColor="White" HorizontalTextAlignment="End" Grid.Row="0" Grid.Column="1" FontSize="Micro"/>
+                                </Grid>
+                            </Grid>
+                        </Frame>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+            <local:ChatTemplateSelector x:Key="ChatDataTemplateSelector" IncomingTemplate="{StaticResource IncomingTemplate}" OutcomingTemplate="{StaticResource OutcomingTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0" 
+           ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ListView x:Name="ChatList" Grid.Row="0" HasUnevenRows="True" ItemTemplate="{StaticResource ChatDataTemplateSelector}" >
+            </ListView>
+            <BoxView HorizontalOptions="FillAndExpand"
+                 HeightRequest="1"
+                 BackgroundColor="LightGray"
+                 Grid.Row="1"/>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.3*"/>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="inputtext" Grid.Row="0" Grid.Column="0" />
+                <Button x:Name="sendbtn" Text="Send" Grid.Row="0" Grid.Column="1" Clicked="sendbtn_Clicked"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

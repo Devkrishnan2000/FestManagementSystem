@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             Title="Admission"
+             x:Class="testapp2.QRScanPage">
+    <ContentPage.Content>
+        
+        <StackLayout>
+            <Frame x:Name="picker" BackgroundColor="{AppThemeBinding Dark=#5352ed, Light=#5352ed}" CornerRadius="5" VerticalOptions="StartAndExpand" Padding="3" Margin="10">
+                <Picker x:Name="RoundPicker" HorizontalTextAlignment="Center" Title="Select Round" TextColor="{AppThemeBinding Dark=#FFF,Light=#FFF}"/>
+            </Frame>
+            <Frame BackgroundColor="#5352ed" Margin="10" HeightRequest="250" WidthRequest="100" >
+                <zxing:ZXingScannerView IsScanning="true" OnScanResult="ZXingScannerView_OnScanResult" WidthRequest="100" HeightRequest="250" Margin="-15"/>
+            </Frame>
+           
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Start" Margin="0,20">
+              
+                <Label x:Name="res" Text="Scan the ID to admit participant" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="20"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="0,50,0,50">
+                <Image Source="qrcode.png" HeightRequest="200" WidthRequest="200"/>
+            </StackLayout>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

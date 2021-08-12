@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+              xmlns:custom="clr-namespace:testapp2;assembly=testapp2"
+             x:Class="testapp2.EventSelectPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="Dev" Text="Select the Event you want to Coordinate" FontSize="30"  HorizontalOptions="Start" Margin="10,30,0,0" FontFamily="OpenSans" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}"/>
+            <Frame x:Name="login_cont" Grid.Row="2" Grid.Column="1" BackgroundColor="{AppThemeBinding Dark=#5352ed, Light=#5352ed}" CornerRadius="5" VerticalOptions="StartAndExpand" Padding="3"  Margin="5,80,5,50">
+
+                <Frame x:Name="InnerFrame" BackgroundColor="{AppThemeBinding Dark=#404040,Light=#FFF}" >
+                    <StackLayout>
+                        <ListView x:Name="EventListView" ItemSelected="EventListView_ItemSelected">
+                            <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    
+
+                                    <ViewCell>
+                                        <StackLayout>
+                                            
+                                                <Label Text="{Binding EventName}" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="Large"/>
+                                            
+                                            
+                                        </StackLayout>
+                                    </ViewCell>
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                       
+                    </StackLayout>
+                </Frame>
+            </Frame>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Image x:Name="ErrorImg" Source="alarm.png" IsVisible="false" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                <Label x:Name="ErrorMsg" Text="Unsupported Table or Permission Denied to The Table" FontSize="14" IsVisible="false" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </StackLayout>
+          
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

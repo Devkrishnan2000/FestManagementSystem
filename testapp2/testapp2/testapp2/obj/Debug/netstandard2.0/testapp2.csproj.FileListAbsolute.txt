@@ -1,0 +1,13 @@
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\bin\Debug\netstandard2.0\testapp2.deps.json
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\bin\Debug\netstandard2.0\testapp2.dll
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\bin\Debug\netstandard2.0\ref\testapp2.dll
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\bin\Debug\netstandard2.0\testapp2.pdb
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\obj\Debug\netstandard2.0\testapp2.AssemblyInfoInputs.cache
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\obj\Debug\netstandard2.0\testapp2.AssemblyInfo.cs
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\obj\Debug\netstandard2.0\testapp2.csproj.CoreCompileInputs.cache
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\obj\Debug\netstandard2.0\testapp2.dll
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\obj\Debug\netstandard2.0\ref\testapp2.dll
+C:\Users\devan\source\repos\testapp2\testapp2\testapp2\obj\Debug\netstandard2.0\testapp2.pdb

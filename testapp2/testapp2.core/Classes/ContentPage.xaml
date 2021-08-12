@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testapp2.Classes.OutcomingMessage"
+             xmlns:local="clr-namespace:testapp2.Classes;assembly=testapp2">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="IncomingTemplate">
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Message}" Grid.Row="0"/>
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="OutcomingTemplate">
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Message}" Grid.Row="0"/>
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+            <local:ChatTemplateSelector x:Key="ChatDataTemplateSelector" IncomingTemplate="{StaticResource IncomingTemplate}" OutcomingTemplate="{StaticResource OutcomingTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+   
+</ContentPage>

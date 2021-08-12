@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="PARTICIPANT LIST"
+            
+             x:Class="testapp2.ParticipantListPage">
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Frame x:Name="picker" BackgroundColor="{AppThemeBinding Dark=#5352ed, Light=#5352ed}" CornerRadius="5" VerticalOptions="StartAndExpand" Padding="3" Margin="10">
+                <Picker x:Name="RoundPickerP" HorizontalTextAlignment="Center" Title="Select Round" SelectedIndexChanged="RoundPickerP_SelectedIndexChanged"/>
+            </Frame>
+
+            
+            <Frame x:Name="Cont_frame" BackgroundColor="{AppThemeBinding Dark=#5352ed, Light=#5352ed}" CornerRadius="5" VerticalOptions="StartAndExpand" Padding="3"  Margin="5,20,5,50">
+                <Frame x:Name="InnerFrame" BackgroundColor="{AppThemeBinding Dark=#404040,Light=#f5f5f5}">
+                    <StackLayout>
+                        <Label Text="Participants" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="30" Margin="10" FontFamily="OpenSans"/>
+                        <ListView x:Name="ParticipantListView" ItemsSource="{Binding Participant}" IsPullToRefreshEnabled="True" RefreshControlColor="#5352ed" HasUnevenRows="True" ItemSelected="ParticipantListView_ItemSelected" BackgroundColor="#292929" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+                                        <Grid BackgroundColor="{AppThemeBinding Dark=#525252 ,Light=#d4d4d4}" Margin="5,5,5,5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="50"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition Width="50"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding ParticipantName }" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="15" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding ParticipantNumber }" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="15" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="0,0,-20,0" />
+                                            <Image Grid.Row="0" Grid.Column="0" Source="{Binding imageSource }" HeightRequest="20" WidthRequest="20" VerticalOptions="Center" Margin="5,0,0,5"/>
+                                            <Rectangle Grid.Row="0" Grid.Column="3" Fill="#2ecc71" HeightRequest="50" WidthRequest="50"/>
+                                            <Image Grid.Row="0" Grid.Column="3" Source="phone.png" Margin="15"/>
+                                        </Grid>
+
+                                    </ViewCell>
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                     
+                    </StackLayout>
+                   
+                </Frame>
+                </Frame>
+            
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

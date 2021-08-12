@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testapp2.MainPage">
+
+    <StackLayout>
+        <Grid x:Name="main_Grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                
+            </Grid.ColumnDefinitions>
+            <Label Text="LOGIN" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" FontSize="48" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Frame x:Name="login_Frame" Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" BorderColor="White" CornerRadius="2" Margin="0,10,0,0" >
+
+                <StackLayout>
+                    <Grid x:Name="login_Grid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="10"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="10"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Server Name:" Grid.Row="1" Grid.Column="1" TextColor="White" Margin="0,10,10,10" FontSize="20" />
+                        <Editor x:Name="serverNametxt" Grid.Row="2" Grid.Column="1" TextColor="White"/>
+                        <Label Text="User Name:" Grid.Row="3" Grid.Column="1" TextColor="White" Margin="0,10,10,10" FontSize="20"/>
+                        <Editor x:Name="usrNametxt" Grid.Row="4" Grid.Column="1" TextColor="White"/>
+                        <Label Text="Pasword:" Grid.Row="5" Grid.Column="1" TextColor="White" Margin="0,10,10,10" FontSize="20"/>
+                        <Editor x:Name="pswrdTxt" Grid.Row="6" Grid.Column="1" TextColor="White"/>
+                    </Grid>
+                    <Grid>
+                        <Button x:Name="conectBtn" Text="Connect" />
+                    </Grid>
+                </StackLayout>
+                
+                           
+            </Frame>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:testapp2;assembly=testapp2"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="testapp2.MainPage">
+
+
+    <Grid x:Name="main_grid" BackgroundColor="{AppThemeBinding Dark=#272727,Light=#FFF}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="LOGIN" Grid.Row="1" Grid.Column="1" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="Medel" TextColor="#5352ed"/>
+        <Frame x:Name="login_cont" Grid.Row="2" Grid.Column="1" BackgroundColor="{AppThemeBinding Dark=#5352ed, Light=#5352ed}" CornerRadius="5" VerticalOptions="StartAndExpand" Padding="3">
+
+            <Frame x:Name="InnerFrame" BackgroundColor="{AppThemeBinding Dark=#404040,Light=#FFF}" >
+                <StackLayout>
+                <Label Text="Server Name" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="Subtitle" FontFamily="OpenSans"/>
+                <custom:EntryRenderer x:Name="servname_txt"  TextColor="White" FontFamily="OpenSans" />
+                    <Label Text="User Name" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="Subtitle" FontFamily="OpenSans"/>
+                    <Entry x:Name="usrname_txt"  TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontFamily="OpenSans"/>
+                    <Label Text="Password" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}"  FontSize="Subtitle" FontFamily="OpenSans"/>
+                <Entry x:Name="pswrd_txt" IsPassword="True"  TextColor="White" FontFamily="OpenSans" />
+
+                <Button x:Name="connect_btn" Text="CONNECT" BackgroundColor="#2ecc71" FontFamily="OpenSans" CornerRadius="5" FontAttributes="Bold" Clicked="Button_Clicked" />
+                    <Label x:Name="ConectStatus" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="Caption" Text="Connected" HorizontalOptions="Center" Margin="0,30,0,0" IsVisible="true"/>
+                </StackLayout>
+            </Frame>
+        </Frame>
+          
+            
+      
+        
+    </Grid>
+
+</ContentPage>

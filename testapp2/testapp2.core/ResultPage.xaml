@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="RESULT"
+             x:Class="testapp2.ResultPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Frame x:Name="picker" BackgroundColor="{AppThemeBinding Dark=#5352ed, Light=#5352ed}" CornerRadius="5" VerticalOptions="StartAndExpand" Padding="3" Margin="10">
+                <Picker x:Name="RoundPickerR" HorizontalTextAlignment="Center" Title="Select Round" SelectedIndexChanged="RoundPickerR_SelectedIndexChanged" />
+            </Frame>
+
+            <Frame x:Name="Cont_frame" BackgroundColor="{AppThemeBinding Dark=#5352ed, Light=#5352ed}" CornerRadius="5" VerticalOptions="StartAndExpand" Padding="3"  Margin="5,20,5,50">
+                <Frame x:Name="InnerFrame" BackgroundColor="{AppThemeBinding Dark=#404040,Light=#f5f5f5}">
+                    <StackLayout>
+                        <Label Text="Select Participants" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="30" Margin="10" FontFamily="OpenSans"/>
+                        <ListView x:Name="ResultListView"  IsPullToRefreshEnabled="True" RefreshControlColor="#5352ed" HasUnevenRows="True" BackgroundColor="#292929" ItemSelected="ResultListView_ItemSelected" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+                                        <Grid BackgroundColor="{AppThemeBinding Dark=#525252 ,Light=#d4d4d4}" Margin="5,5,5,5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="50"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition Width="50"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding ParticipantNumber }" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="15" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="0,0,-20,0" />
+                                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding ParticipantName }" TextColor="{AppThemeBinding Dark=#FFF,Light=#000}" FontSize="15" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                                           <Image Grid.Row="0" Grid.Column="3" Source="{Binding imageSource }" HeightRequest="20" WidthRequest="20" VerticalOptions="Center" Margin="5,0,0,5"/>
+                                        </Grid>
+
+                                    </ViewCell>
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <StackLayout x:Name="FinalResult">
+                            <Picker x:Name="FirstPrizePicker" Title="First Prize" Margin="0,0,0,70" SelectedIndexChanged="FirstPrizePicker_SelectedIndexChanged"/>
+                            <Picker x:Name="SecondPrizePicker" Title="Second Prize" Margin="0,0,0,70" SelectedIndexChanged="SecondPrizePicker_SelectedIndexChanged"/>
+                            <Picker x:Name="ThirdPrizePicker" Title="Third Prize" Margin="0,0,0,70" SelectedIndexChanged="ThirdPrizePicker_SelectedIndexChanged"/>
+                        </StackLayout>
+                       
+                        <Button x:Name="Resultbtn" Text="Promote to Next Round" BackgroundColor="#5352ed" TextColor="{AppThemeBinding Dark=#FFF,Light=#FFF}" HorizontalOptions="Center" IsEnabled="False"
+                                Clicked="Resultbtn_Clicked"/>
+                    </StackLayout>
+
+                </Frame>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
