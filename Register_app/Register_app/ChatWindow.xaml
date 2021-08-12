@@ -1,0 +1,35 @@
+﻿<Window x:Class="Register_app.ChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Register_app" xmlns:local1="clr-namespace:Register_app.Usercontrols"
+        mc:Ignorable="d"
+         Title="Login" Height="500" Width="550" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition></RowDefinition>
+          
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+          
+            <ColumnDefinition></ColumnDefinition>
+        
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="TopBar" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Background="{DynamicResource primary_background}" Orientation="Horizontal" MouseMove="TopBar_MouseMove" >
+
+            <TextBlock Text="Fest Chat" FontFamily="/FestManagementApp;component/Fonts/#Medel" Margin="10,0,0,0" FontSize="16" VerticalAlignment="Center"  />
+
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+            <Button x:Name="MiniBtn"   Style="{DynamicResource minimize_btn_style}" Click="MiniBtn_Click" Margin="0" Padding="0" />
+            <Button x:Name="CloseBtn" Style="{DynamicResource close_btn_style}" Click="CloseBtn_Click" Margin="0" Padding="0"/>
+        </StackPanel>
+       
+         <local1:ChatClient Grid.Row="1" Grid.Column="0"></local1:ChatClient>
+      
+       
+    </Grid>
+</Window>

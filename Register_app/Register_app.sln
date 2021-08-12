@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Register_app", "Register_app\Register_app.csproj", "{B514F61C-9AC5-4C5A-9B1F-7B9514B9002C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestManagementApp", "..\FestManagementApp\FestManagementApp\FestManagementApp.csproj", "{BBAC1E29-E54E-4BAB-899A-D96C57C59A46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B514F61C-9AC5-4C5A-9B1F-7B9514B9002C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B514F61C-9AC5-4C5A-9B1F-7B9514B9002C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B514F61C-9AC5-4C5A-9B1F-7B9514B9002C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B514F61C-9AC5-4C5A-9B1F-7B9514B9002C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBAC1E29-E54E-4BAB-899A-D96C57C59A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBAC1E29-E54E-4BAB-899A-D96C57C59A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBAC1E29-E54E-4BAB-899A-D96C57C59A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBAC1E29-E54E-4BAB-899A-D96C57C59A46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10D397C4-E781-4365-A7DA-7076C9B5509A}
+	EndGlobalSection
+EndGlobal
